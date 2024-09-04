@@ -1,13 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 import cv2
-import numpy as np
 from io import BytesIO
 from PIL import Image
 import pytesseract as ts
 import pandas as pd
-from tabulate import tabulate
-import pyodbc
 from config_v0 import *
 import time
 
@@ -59,13 +56,11 @@ if __name__ == '__main__':
         # Iteración por cada error de captcha
         for i in range(10):
             # Solicitudes
-            # response = session.get(url_form) # BORRAR SI TODO FUNCIONA BIEN
             captcha_response = session.get(captcha_url)
             captcha_image = Image.open(BytesIO(captcha_response.content))
             captcha_image.save('captcha.png')
             captcha_text = resolver_captcha('captcha.png')
       
-            # print(DNI, fecha_nacimiento, captcha_text)
             # Data
             data = {
                 'cboPais': 'PER',
