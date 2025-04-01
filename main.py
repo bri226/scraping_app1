@@ -5,7 +5,7 @@ from io import BytesIO
 from PIL import Image
 import pytesseract as ts
 import pandas as pd
-from config_v0 import *
+from config import *
 import time
 
 ts.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
